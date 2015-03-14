@@ -60,7 +60,10 @@ class Response
         if (trim($answers['success']) == true) {
             return new Response(true);
         }
-
+        if(!$answers['error-codes'])
+        {
+            $answers['error-codes'] = array();            
+        }
         return new Response(false, $answers['error-codes']);
     }
 
